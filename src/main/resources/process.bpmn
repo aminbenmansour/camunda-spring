@@ -41,7 +41,7 @@
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_09xk6ok" sourceRef="Activity_1dlrzmf" targetRef="Gateway_1kyb4qa" />
     <bpmn:sequenceFlow id="Flow_1igtik8" sourceRef="Gateway_1kyb4qa" targetRef="Activity_0jefqv7" />
-    <bpmn:serviceTask id="Activity_1dlrzmf" name="Book a place on a ship">
+    <bpmn:serviceTask id="Activity_1dlrzmf" name="Book a place on a ship" camunda:delegateExpression="#{reserveSeatOnBoat}">
       <bpmn:incoming>Flow_1gqindd</bpmn:incoming>
       <bpmn:outgoing>Flow_09xk6ok</bpmn:outgoing>
     </bpmn:serviceTask>
