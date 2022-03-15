@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0fr9mxs" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0">
-  <bpmn:process id="my-project-process" isExecutable="true">
+  <bpmn:process id="revolution-process" name="demo" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Involoving in a revolution">
       <bpmn:outgoing>SequenceFlow_1fp17al</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1fp17al" sourceRef="StartEvent_1" targetRef="say-hello" />
-    <bpmn:userTask id="say-hello" name="Prepare for departure" camunda:candidateUsers="demo">
+    <bpmn:userTask id="say-hello" name="Prepare for departure" camunda:formKey="camunda-forms:/forms/prepareForDeparture.form" camunda:candidateUsers="demo">
       <bpmn:incoming>SequenceFlow_1fp17al</bpmn:incoming>
       <bpmn:outgoing>Flow_0fk7f0x</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_0fk7f0x" sourceRef="say-hello" targetRef="Activity_1r8cba3" />
-    <bpmn:userTask id="Activity_1r8cba3" name="Get a Taxi">
+    <bpmn:userTask id="Activity_1r8cba3" name="Get a Taxi" camunda:formKey="camunda-forms:/forms/getTaxi.form">
       <bpmn:incoming>Flow_0fk7f0x</bpmn:incoming>
       <bpmn:outgoing>Flow_17q1kta</bpmn:outgoing>
     </bpmn:userTask>
@@ -25,7 +25,7 @@
     </bpmn:userTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="my-project-process">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="revolution-process">
       <bpmndi:BPMNEdge id="SequenceFlow_1fp17al_di" bpmnElement="SequenceFlow_1fp17al">
         <di:waypoint x="215" y="117" />
         <di:waypoint x="350" y="117" />
