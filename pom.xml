@@ -65,6 +65,12 @@
       <artifactId>spring-boot-starter-jdbc</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>org.camunda.bpm.extension</groupId>
+      <artifactId>camunda-bpm-identity-keycloak</artifactId>
+      <version>2.2.3</version>
+    </dependency>
+
   </dependencies>
 
   <build>
