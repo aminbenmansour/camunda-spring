@@ -3,3 +3,16 @@ spring.datasource.url: jdbc:h2:file:./camunda-h2-database
 camunda.bpm.admin-user:
   id: demo
   password: demo
+
+
+camunda.bpm:
+  authorization:
+    enabled: true
+
+plugin.identity.keycloak:
+  keycloakIssuerUrl: http://localhost:8080/auth/realms/Camunda-identity-service
+  keycloakAdminUrl: http://localhost:8080/auth/admin/realms/Camunda-identity-service
+  clientId: camunda-identity-service
+  clientSecret: ${{ secrets.CLIENT_SECRET }}
+  useEmailAsCamundaUserId: true
+  administratorGroupName: camunda-admin
