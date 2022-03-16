@@ -25,7 +25,7 @@
   "actionTokenGeneratedByUserLifespan": 300,
   "oauth2DeviceCodeLifespan": 600,
   "oauth2DevicePollingInterval": 5,
-  "enabled": false,
+  "enabled": true,
   "sslRequired": "external",
   "registrationAllowed": false,
   "registrationEmailAsUsername": false,
@@ -394,7 +394,17 @@
       ]
     }
   },
-  "groups": [],
+  "groups": [
+    {
+      "id": "81bfe976-2b87-493a-ad41-072abf4297fc",
+      "name": "camunda-admin",
+      "path": "/camunda-admin",
+      "attributes": {},
+      "realmRoles": [],
+      "clientRoles": {},
+      "subGroups": []
+    }
+  ],
   "defaultRole": {
     "id": "916424d3-d421-4b87-9d84-9e0de491539f",
     "name": "default-roles-camunda-identity-service",
@@ -1378,14 +1388,6 @@
   "components": {
     "org.keycloak.services.clientregistration.policy.ClientRegistrationPolicy": [
       {
-        "id": "8bd6cfaa-3ed6-476f-aaa0-30334da7a2bf",
-        "name": "Consent Required",
-        "providerId": "consent-required",
-        "subType": "anonymous",
-        "subComponents": {},
-        "config": {}
-      },
-      {
         "id": "3f25be31-a062-4ce3-9345-2b3088dcf7a9",
         "name": "Allowed Protocol Mapper Types",
         "providerId": "allowed-protocol-mappers",
@@ -1415,14 +1417,6 @@
             "true"
           ]
         }
-      },
-      {
-        "id": "4a49b993-1586-44f8-b994-80aa90a62c7e",
-        "name": "Full Scope Disabled",
-        "providerId": "scope",
-        "subType": "anonymous",
-        "subComponents": {},
-        "config": {}
       },
       {
         "id": "e2cd3297-9405-4cab-a11e-36b269458ee4",
@@ -1481,20 +1475,33 @@
             "true"
           ]
         }
+      },
+      {
+        "id": "8bd6cfaa-3ed6-476f-aaa0-30334da7a2bf",
+        "name": "Consent Required",
+        "providerId": "consent-required",
+        "subType": "anonymous",
+        "subComponents": {},
+        "config": {}
+      },
+      {
+        "id": "4a49b993-1586-44f8-b994-80aa90a62c7e",
+        "name": "Full Scope Disabled",
+        "providerId": "scope",
+        "subType": "anonymous",
+        "subComponents": {},
+        "config": {}
+      }
+    ],
+    "org.keycloak.userprofile.UserProfileProvider": [
+      {
+        "id": "1d04d529-fcca-4855-98fe-5f167d813c8e",
+        "providerId": "declarative-user-profile",
+        "subComponents": {},
+        "config": {}
       }
     ],
     "org.keycloak.keys.KeyProvider": [
-      {
-        "id": "89562cb0-5306-46d6-b1d6-6ec0970a848b",
-        "name": "rsa-generated",
-        "providerId": "rsa-generated",
-        "subComponents": {},
-        "config": {
-          "priority": [
-            "100"
-          ]
-        }
-      },
       {
         "id": "fced5f90-68c0-4af2-95cc-a14752fd47d5",
         "name": "rsa-enc-generated",
@@ -1506,6 +1513,17 @@
           ],
           "algorithm": [
             "RSA-OAEP"
+          ]
+        }
+      },
+      {
+        "id": "89562cb0-5306-46d6-b1d6-6ec0970a848b",
+        "name": "rsa-generated",
+        "providerId": "rsa-generated",
+        "subComponents": {},
+        "config": {
+          "priority": [
+            "100"
           ]
         }
       },
@@ -2212,7 +2230,12 @@
     "cibaAuthRequestedUserHint": "login_hint",
     "oauth2DeviceCodeLifespan": "600",
     "oauth2DevicePollingInterval": "5",
+    "clientOfflineSessionMaxLifespan": "0",
+    "clientSessionIdleTimeout": "0",
+    "userProfileEnabled": "false",
     "parRequestUriLifespan": "60",
+    "clientSessionMaxLifespan": "0",
+    "clientOfflineSessionIdleTimeout": "0",
     "cibaInterval": "5"
   },
   "keycloakVersion": "16.1.1",
