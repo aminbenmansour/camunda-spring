@@ -10,5 +10,12 @@ Creating a Single Sign-On (SSO) is an authentication scheme is highly encouraged
 
 We used a special camunda plugin called ```camunda-bpm-identity-keycloak``` for this purpose. I will provide everything in the ```references```  section so you could deep dive into the implementation.
 
+# Usage
+1. You must have `docker` installed in order to run the `keycloak realme`. the running the following command.
+```
+docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin jboss/keycloak
+```
+2. Running the spring boot application through your IDE.
+
 # references
 * https://github.com/camunda-community-hub/camunda-bpm-identity-keycloak
